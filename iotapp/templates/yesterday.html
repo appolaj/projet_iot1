@@ -24,7 +24,7 @@
       <div class="dropdown-content">
       <a href="yesterday">yesterday</a>
       <a href="lastweek">last week</a>
-      <a href="#">Link 3</a>
+
       </div>
     </div>
             </ul>
@@ -35,14 +35,14 @@
             <img src="{%static './img/temperature.png'%}" width="30px"/>
             <div class="m">
                 <p>The Last temperature measure</p>
-                <span>18°C</span>
+                <span>10°C</span>
             </div>
         </div>
        <div class="Last-temp">
             <img src="{%static './img/temperature.png'%}" width="30px"/>
             <div class="m">
                 <p>The Last temperature measure</p>
-                <span>18°C</span>
+                <span>10°C</span>
             </div>
         </div>
     </div>
@@ -60,16 +60,24 @@
                   <tr>
                       <th scope="col">Num</th>
                     <th scope="col">Temperature</th>
+                      <th>Status</th>
                     <th scope="col" >Date:Heure</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {% for y in yes %}
-
+                  {% for i in yes %}
                   <tr>
-                      <td>{{y.id}}</td>
-                    <td>{{y.temp}}°C</td>
-                    <td>{{y.dt}}</td>
+                          <td>{{i.id}}</td>
+                    <td>{{i.temp}}°C</td>
+                  {% if i.temp > 8 %}
+                  <td style="background-color:red">Server</td>
+                      {%elif i.temp < 2 %}
+                      <td style="background-color:red">Critique</td>
+                      {%else%}
+                      <td style="background-color:green">Natural</td>
+
+                      {%endif%}
+                      <td>{{i.dt}}</td>
                   </tr>
                     {%endfor%}
 

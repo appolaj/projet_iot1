@@ -24,7 +24,7 @@
       <div class="dropdown-content">
       <a href="yesterday">yesterday</a>
       <a href="lastweek">last week</a>
-      <a href="#">Link 3</a>
+
       </div>
     </div>
             </ul>
@@ -57,22 +57,30 @@
         <a class="download" href="csv" >download data</a>
     </div>
     <div class="table-body">
-            <div class="table-responsive">
+       <div class="table-responsive">
               <table  >
                 <thead>
                   <tr>
                       <th scope="col">Num</th>
                     <th scope="col">Temperature</th>
+                      <th>Status</th>
                     <th scope="col" >Date:Heure</th>
                   </tr>
                 </thead>
                 <tbody>
                   {% for i in da2 %}
-
                   <tr>
-                      <td>{{i.id}}</td>
+                          <td>{{i.id}}</td>
                     <td>{{i.temp}}°C</td>
-                    <td>{{i.dt}}</td>
+                  {% if i.temp > 8 %}
+                  <td style="background-color:red">Server</td>
+                      {%elif i.temp < 2 %}
+                      <td style="background-color:red">Critique</td>
+                      {%else%}
+                      <td style="background-color:green">Natural</td>
+
+                      {%endif%}
+                      <td>{{i.dt}}</td>
                   </tr>
                     {%endfor%}
 

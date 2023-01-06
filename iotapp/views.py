@@ -18,7 +18,9 @@ def dht11(request):
 def dht12(request):
     yes = Dht.objects.all()
     s1 = {'yes': yes[len(yes)-146:len(yes)-73]}
-    return render(request, 'yesterday.html', s1)
+    return render(request, 'yesterday.html', s1 )
+
+
 
 def exp_csv(request):
     obj = Dht.objects.all()
@@ -27,7 +29,7 @@ def exp_csv(request):
     writer = csv.writer(response)
     writer.writerow(['ID', 'Temp', 'DT'])
 
-    studs = obj.values_list('id', 'temp', 'dt')
+    studs = obj.values_list('id', 'temp', 'dt')[len(obj)-36:len(obj)]
     for std in studs:
         writer.writerow(std)
     return response
