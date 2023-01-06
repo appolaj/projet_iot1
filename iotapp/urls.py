@@ -4,6 +4,7 @@ urlpatterns = [
    path('index',views.home,name='index'),
    #path('data', views.dht11, name='Data'),
    path('graph', views.dht11, name='graph'),
+   path('yesterday', views.dht12, name='yesterday'),
 
 
 ##API
