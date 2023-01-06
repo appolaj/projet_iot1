@@ -1,0 +1,58 @@
+<style>
+    th{
+    border:solid 1px;}
+    td{
+    border:solid 1px;}
+</style>
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+<thead>
+<tr>
+<th>N</th>
+<th>Température</th>
+<th>Date:Heure</th>
+</tr>
+</thead>
+
+<tbody>
+{% for i in tab %}
+<tr>
+<td>{{i.id}}</td>
+<td>{{i.temp}}</td>
+<td>{{i.dt}}</td>
+{%endfor%}
+</tbody>
+</table>
+<div class="card-body">
+<canvas id="myAreaChart" width="250px" height="60"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+</div>
+
+<script>
+const dates = [{% for i in tab %} '{{i.dt}}', {% endfor %}];
+const datas = [{% for i in tab %} '{{i.temp}}', {% endfor %}];
+var ctx = document.getElementById('myAreaChart').getContext('2d');
+var myChart = new Chart(ctx, {
+type: 'line',
+data: {
+labels: dates,
+scaleShowLabels : false,
+datasets: [{
+label: 'temperature',
+data:datas,
+borderColor: [
+'rgb(15, 15, 224)',
+],
+borderWidth: 1
+}]
+},
+options: {
+scales: {
+yAxes: [{
+ticks: {
+beginAtZero: true
+}
+}]
+}
+}
+});
+</script>

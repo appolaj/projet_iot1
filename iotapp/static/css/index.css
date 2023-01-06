@@ -1,0 +1,81 @@
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rowdies', cursive;
+}
+
+.menu-container {
+    margin: 10px 20px;
+    padding: 10px 20px ;
+    background-color: #6F6AF8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius:10px;
+}
+
+.logo {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo p {
+    margin-left: 5px;
+    color: hsl(242, 92%, 67%);
+}
+.menu ul {
+ list-style: none;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: white;
+}
+
+.menu ul li {
+    margin : 10px 20px;
+    font-size: 22px;
+    
+}
+.menu ul li a  {
+text-decoration : none;
+color:white;
+}
+.menu ul li:hover{
+    cursor: pointer;
+    color: rgb(146, 142, 142);
+}
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+}
+.main h1 {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+.main span {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.main .text {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.main a {
+    background-color: #6F6AF8;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    align-self: center;
+    margin-right: 80px;
+}

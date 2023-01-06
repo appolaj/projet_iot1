@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{%load  static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static './css/graph.css'%}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="logo">
+            <img src="{%static './img/temperature.png'%}" width="30px"/>
+            <p>SHOTEMP</p>
+        </div>
+        <div class="menu">
+            <ul>
+                  <li><a href="index">Acceuil</a></li>
+                <li><a href="graph">DashBoard</a></li>
+                <li>Historique</li>
+            </ul>
+        </div>
+    </div>
+    <div class="temp">
+        <div class="Last-temp">
+            <img src="{%static './img/temperature.png'%}" width="30px"/>
+            <div class="m">
+                <p>The Last temperature measure</p>
+                <span>18°C</span>
+            </div>
+        </div>
+       <div class="Last-temp">
+            <img src="{%static './img/temperature.png'%}" width="30px"/>
+            <div class="m">
+                <p>The Last temperature measure</p>
+                <span>18°C</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card-body">
+            <h4 style="text-align:center;font-size:25px;background-color: #6F6AF8; padding:10px 20px;color:white;border-radius:10px;">Last 12 hours </h4>
+        <canvas class="my-4 w-100" id="myChart"  height="100"></canvas>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    </div>
+    <div class="table-body">
+            <div class="table-responsive">
+              <table  >
+                <thead>
+                  <tr>
+                      <th scope="col">Num</th>
+                    <th scope="col">Temperature</th>
+                    <th scope="col" >Date:Heure</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for i in tab %}
+
+                  <tr>
+                      <td>{{i.id}}</td>
+                    <td>{{i.temp}}°C</td>
+                    <td>{{i.dt}}</td>
+                  </tr>
+                    {%endfor%}
+
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+    <script>
+        const dates = [{% for i in tab %} '{{i.dt}}', {% endfor %}];
+        const datas = [{% for i in tab %} '{{i.temp}}', {% endfor %}];
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+        labels: dates,
+        scaleShowLabels : false,
+        datasets: [{
+        label : 'Temperature',
+
+        data:datas,
+        borderColor: [
+        '#6F6AF8',
+        ],
+        borderWidth: 2
+        }]
+        },
+        options: {
+        scales: {
+        yAxes: [{
+        ticks: {
+        beginAtZero: true,
+                    maxRotation: 0,
+                    minRotation: 0
+        }
+        }]
+        }
+        }
+        });
+        </script>
+</body>
+</html>
