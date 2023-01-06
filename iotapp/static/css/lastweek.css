@@ -14,6 +14,7 @@
     justify-content: space-between;
     border-radius:10px;
 }
+
 .logo {
     background-color: white;
     border-radius: 10px;
@@ -37,9 +38,9 @@
 .menu ul li {
     margin : 10px 20px;
     font-size: 22px;
-    
+
 }
-.menu ul li a {
+.menu ul li a  {
 text-decoration : none;
 color:white;
 }
@@ -47,65 +48,17 @@ color:white;
     cursor: pointer;
     color: rgb(146, 142, 142);
 }
-.card-body{
-padding: 10px 20px;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-}
 
-.table-responsive{
-display:flex;
-justify-content:center;
+.main a {
+    background-color: #6F6AF8;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    align-self: center;
+    margin-right: 80px;
 }
-.table-responsive table {
-border-radius:10px;
-padding:5px;
-font-size:20px;
-width:90%;
-}
-.table-responsive table th,
-.table-responsive table td {
-  padding: 0.25em 0.5em;
-  text-align: center;
-}
-.table-responsive table th:nth-child(2),
-.table-responsive table td:nth-child(2) {
-  text-align: center;
-}
-.table-responsive table td {
-  background-color: #eee;
-  border-radius:10px;
-
-}
-.table-responsive table th {
-  background-color: #6F6AF8;
-  color: #fff;
-  border-radius:10px;
-}
-
-.temp {
-display:flex;
-align-items:center ;
-justify-content:space-around;
-}
-
-.Last-temp {
-display:flex;
-align-items:center ;
-justify-content:center;
-margin-top:10px;
-margin-bottom:10px;
-}
-.Last-temp .m{
-margin-left:10px;
-
-}
-.Last-temp span {
-color: lightgrey;
-}
-
 .dropbtn {
   background-color: #6F6AF8;
   color: white;
@@ -147,10 +100,9 @@ color: lightgrey;
     border-radius:10px;
 }
 
-.dropdown :hover .dropbtn {
+.dropdown:hover .dropbtn {
   background-color:#6F6AF8;
 }
-
 a.download{
 text-align:center;
 font-size:15px;
@@ -159,6 +111,8 @@ padding:10px 20px;
 color:white;
 border-radius:10px;
 text-decoration:none;
+display:block;
+margin:50px;
 
 }
 a.download:hover {
@@ -166,3 +120,12 @@ a.download:hover {
 
   background-color: #cecdfa;
 }
+#days{
+margin:80px 120px;}
+ div h1{
+ border:solid 2px;
+ border-radius:10px;
+ font-size:50px;
+ text-align:center;
+
+ }

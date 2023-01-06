@@ -49,7 +49,7 @@
 
 
     <div class="card-body">
-            <h4 style="text-align:center;font-size:25px;background-color: #6F6AF8; padding:10px 20px;color:white;border-radius:10px;">Last 12 hours </h4>
+            <h4 style="text-align:center;font-size:25px;background-color: #6F6AF8; padding:10px 20px;color:white;border-radius:10px;">5 days before </h4>
 
 
         <canvas class="my-4 w-100" id="myChart"  height="100"></canvas>
@@ -67,7 +67,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  {% for i in tab %}
+                  {% for i in da5 %}
 
                   <tr>
                       <td>{{i.id}}</td>
@@ -82,8 +82,8 @@
             </div>
           </div>
     <script>
-        const dates = [{% for i in tab %} '{{i.dt}}', {% endfor %}];
-        const datas = [{% for i in tab %} '{{i.temp}}', {% endfor %}];
+        const dates = [{% for i in da5 %} '{{i.dt}}', {% endfor %}];
+        const datas = [{% for i in da5 %} '{{i.temp}}', {% endfor %}];
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
         type: 'line',
