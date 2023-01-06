@@ -25,14 +25,76 @@ def dht12(request):
 def exp_csv(request):
     obj = Dht.objects.all()
     response = HttpResponse('text/csv')
-    response['Content-Disposition'] = 'attachment; filename=DHT.csv'
+    response['Content-Disposition'] = 'attachment; filename=last24h.csv'
     writer = csv.writer(response)
     writer.writerow(['ID', 'Temp', 'DT'])
 
-    studs = obj.values_list('id', 'temp', 'dt')[len(obj)-36:len(obj)]
+    studs = obj.values_list('id', 'temp', 'dt')[len(obj)-72:len(obj)]
     for std in studs:
         writer.writerow(std)
     return response
+def exp_csv1(request):
+    obj = Dht.objects.all()
+    response = HttpResponse('text/csv')
+    response['Content-Disposition'] = 'attachment; filename=yesterday.csv'
+    writer = csv.writer(response)
+    writer.writerow(['ID', 'Temp', 'DT'])
+
+    studs = obj.values_list('id', 'temp', 'dt')[len(obj)-146:len(obj)-73]
+    for std in studs:
+        writer.writerow(std)
+    return response
+
+def exp_csv2(request):
+    obj = Dht.objects.all()
+    response = HttpResponse('text/csv')
+    response['Content-Disposition'] = 'attachment; filename=2 days before.csv'
+    writer = csv.writer(response)
+    writer.writerow(['ID', 'Temp', 'DT'])
+
+    studs = obj.values_list('id', 'temp', 'dt')[len(obj)-219:len(obj)-147]
+    for std in studs:
+        writer.writerow(std)
+    return response
+
+def exp_csv3(request):
+    obj = Dht.objects.all()
+    response = HttpResponse('text/csv')
+    response['Content-Disposition'] = 'attachment; filename=3 days before.csv'
+    writer = csv.writer(response)
+    writer.writerow(['ID', 'Temp', 'DT'])
+
+    studs = obj.values_list('id', 'temp', 'dt')[len(obj)-292:len(obj)-220]
+    for std in studs:
+        writer.writerow(std)
+    return response
+def exp_csv4(request):
+    obj = Dht.objects.all()
+    response = HttpResponse('text/csv')
+    response['Content-Disposition'] = 'attachment; filename=4 days before.csv'
+    writer = csv.writer(response)
+    writer.writerow(['ID', 'Temp', 'DT'])
+
+    studs = obj.values_list('id', 'temp', 'dt')[len(obj)-365:len(obj)-293]
+    for std in studs:
+        writer.writerow(std)
+    return response
+
+def exp_csv5(request):
+    obj = Dht.objects.all()
+    response = HttpResponse('text/csv')
+    response['Content-Disposition'] = 'attachment; filename=5days before.csv'
+    writer = csv.writer(response)
+    writer.writerow(['ID', 'Temp', 'DT'])
+
+    studs = obj.values_list('id', 'temp', 'dt')[len(obj)-438:len(obj)-366]
+    for std in studs:
+        writer.writerow(std)
+    return response
+
+
+
+
 
 def dhtlastweek(request):
 
