@@ -12,7 +12,9 @@ from django.shortcuts import render
 from .models import Dht
 def dht11(request):
     tab = Dht.objects.all()
-    s = {'tab': tab[len(tab)-72:len(tab)]}
+    temperature = Dht.objects.latest('dt')
+    s = {'tab': tab[len(tab)-72:len(tab)] ,'temp': temperature.temp }
+
     return render(request, 'graph.html', s)
 
 def dht12(request):
