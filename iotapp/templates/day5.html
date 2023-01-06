@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{%static './css/graph.css'%}">
-    <title>dashboard</title>
+    <title>5 days before</title>
 </head>
 <body>
     <div class="menu-container">
@@ -23,47 +23,14 @@
       <button class="dropbtn">historique</button>
       <div class="dropdown-content">
       <a href="yesterday">yesterday</a>
-      <a href="lastweek">last week</a>
+      <a href="lastweek">last 5 days</a>
 
       </div>
     </div>
             </ul>
         </div>
     </div>
-    <div class="temp">
-       <div class="table-responsive">
-              <table  >
-                <thead>
-                  <tr>
-                      <th scope="col">Num</th>
-                    <th scope="col">Temperature</th>
-                      <th>Status</th>
-                    <th scope="col" >Date:Heure</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for i in da5 %}
-                  <tr>
-                          <td>{{i.id}}</td>
-                    <td>{{i.temp}}°C</td>
-                  {% if i.temp > 8 %}
-                  <td style="background-color:red">Server</td>
-                      {%elif i.temp < 2 %}
-                      <td style="background-color:red">Critique</td>
-                      {%else%}
-                      <td style="background-color:green">Natural</td>
 
-                      {%endif%}
-
-                  </tr>
-                  <td>{{i.dt}}</td>
-                    {%endfor%}
-
-
-                </tbody>
-              </table>
-            </div>
-    </div>
 
 
     <div class="card-body">
@@ -75,22 +42,30 @@
         <a class="download" href="csv5" >download data</a>
     </div>
     <div class="table-body">
-            <div class="table-responsive">
+       <div class="table-responsive">
               <table  >
                 <thead>
                   <tr>
-                      <th scope="col">Num</th>
+
                     <th scope="col">Temperature</th>
+                      <th>Status</th>
                     <th scope="col" >Date:Heure</th>
                   </tr>
                 </thead>
                 <tbody>
                   {% for i in da5 %}
-
                   <tr>
-                      <td>{{i.id}}</td>
+
                     <td>{{i.temp}}°C</td>
-                    <td>{{i.dt}}</td>
+                  {% if i.temp > 8 %}
+                  <td style="background-color:red">Severe</td>
+                      {%elif i.temp < 2 %}
+                      <td style="background-color:#0b64c5">Critique</td>
+                      {%else%}
+                      <td style="background-color:green">Natural</td>
+
+                      {%endif%}
+                      <td>{{i.dt}}</td>
                   </tr>
                     {%endfor%}
 

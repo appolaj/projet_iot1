@@ -23,14 +23,14 @@
       <button class="dropbtn">historique</button>
       <div class="dropdown-content">
       <a href="yesterday">yesterday</a>
-      <a href="lastweek">last week</a>
+      <a href="lastweek">last 5 days</a>
 
       </div>
     </div>
             </ul>
         </div>
     </div>
-    <div class="temp">
+    <!--<div class="temp">
         <div class="Last-temp">
             <img src="{%static './img/temperature.png'%}" width="30px"/>
             <div class="m">
@@ -38,14 +38,8 @@
                 <span>10°C</span>
             </div>
         </div>
-       <div class="Last-temp">
-            <img src="{%static './img/temperature.png'%}" width="30px"/>
-            <div class="m">
-                <p>The Last temperature measure</p>
-                <span>10°C</span>
-            </div>
-        </div>
-    </div>
+
+    </div>-->
 
 
     <div class="card-body">
@@ -59,7 +53,7 @@
               <table  >
                 <thead>
                   <tr>
-                      <th scope="col">Num</th>
+
                     <th scope="col">Temperature</th>
                       <th>Status</th>
                     <th scope="col" >Date:Heure</th>
@@ -68,12 +62,12 @@
                 <tbody>
                   {% for i in yes %}
                   <tr>
-                          <td>{{i.id}}</td>
+
                     <td>{{i.temp}}°C</td>
                   {% if i.temp > 8 %}
-                  <td style="background-color:red">Server</td>
+                  <td style="background-color:red">Severe</td>
                       {%elif i.temp < 2 %}
-                      <td style="background-color:red">Critique</td>
+                      <td style="background-color:#0b64c5">Critique</td>
                       {%else%}
                       <td style="background-color:green">Natural</td>
 
