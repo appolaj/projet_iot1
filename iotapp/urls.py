@@ -1,7 +1,7 @@
 from . import views, api
 from django.urls import path
 urlpatterns = [
-   path('index',views.home,name='index'),
+   path('',views.home,name='index'),
    path('csv', views.exp_csv, name='csv'),
    path('csv1', views.exp_csv1, name='csv1'),
    path('csv2', views.exp_csv2, name='csv2'),
